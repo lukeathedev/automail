@@ -1,0 +1,1 @@
+# Pasta padrão para anexos baixados
