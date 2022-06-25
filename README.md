@@ -17,7 +17,7 @@ IMAP_USER=usuario@email.com
 IMAP_PASS=senha-do-email
 ```
 
-Observe as configurações padrão em src/config.ts.
+Observe, também, as configurações padrão em src/config.ts.
 
 ## Utilizando a Ferramenta
 

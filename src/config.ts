@@ -10,7 +10,7 @@ const config = {
   fromDomain: "@uel.br",
   downloads: {
     path: "./downloads",
-    ext: ["csv"],
+    ext: ["csv", "xlsx"],
   },
   log: {
     level: "debug",

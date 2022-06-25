@@ -7,9 +7,9 @@
 
 // Autor:      Lucas Alvarenga (lb.am.alvarenga@uel.br)
 // Inspiração: https://github.com/mscdex/node-imap/issues/407#issuecomment-1096557833
-// Descrição:  Automaticamente 'ouve' a caixa de entrada
-// especificada em 'config.json' para e-mails com anexos
-// com extensões apropriadas vindos de um domínio.
+// Descrição:  Automaticamente 'ouve' a caixa de entrada especificada
+//             em 'config.json' para e-mails com anexos com extensões
+//             apropriadas vindos de um domínio.
 // Criação:    2022-06-24
 
 // Basicamente, o programa abre seu inbox e aguarda novos
@@ -43,7 +43,7 @@ imap.once("ready", () => {
     if (err || !box.uidvalidity) throw err;
 
     LAST_MSG = box.uidnext;
-    log.info(`Opened inbox (latest uid: #${LAST_MSG})`);
+    log.info(`Opened '${box.name}' (latest uid: #${LAST_MSG})`);
   });
 });
 
@@ -143,7 +143,9 @@ const getAttachments = (struct: any, atts: any) => {
 };
 
 const writeAttachment = (attachment: any) => {
-  const filename = `${config.downloads.path}/${new Date().valueOf()}`;
+  let ext = attachment.params.name.split(".");
+  ext = ext[ext.length - 1];
+  const filename = `${config.downloads.path}/${new Date().valueOf()}.${ext}`;
   log.debug(`Writing to ${filename}`);
 
   const encoding = attachment.encoding;
