@@ -2,7 +2,7 @@
 
 ## Pré-requisitos
 
-- node.js
+- Node.js
 
 ## Informações
 
@@ -31,7 +31,7 @@ npm install
 e, nas demais execuções, apenas:
 
 ```sh
-node run start:dev
+npm run start:dev
 ```
 
 no terminal (powershell, cmd, bash).
