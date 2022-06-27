@@ -175,6 +175,7 @@ const writeAttachment = (attachment: any) => {
 };
 
 const isValidFile = (fn: string) => {
+  log.debug(`File is named ${fn}`)
   if (!fn) return false;
 
   const split = fn.split(".");

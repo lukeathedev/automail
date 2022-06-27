@@ -13,7 +13,7 @@ const config = {
     ext: ["csv", "xlsx"],
   },
   log: {
-    level: "debug",
+    level: process.env.LOGLEVEL || "debug",
   },
 };
 
