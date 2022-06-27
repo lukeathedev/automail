@@ -21,6 +21,6 @@ COPY package*.json ./
 COPY .env .
 
 RUN npm ci --omit=dev
-COPY --from=build /usr/src/automail/build ./build
+COPY --from=build /usr/src/automail/build ./
 
-CMD ["node", "build/index.js"]
+CMD ["node", "index.js"]

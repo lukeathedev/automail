@@ -29,6 +29,16 @@ import fs from "fs";
 import Imap, { Box, ImapMessage, ImapMessageAttributes } from "imap";
 import { Stream } from "stream";
 
+const shutdown = () => {
+  log.info("Shutting down...");
+  imap.closeBox((err) => {
+    process.exit(err ? 1 : 0);
+  });
+};
+
+process.on("SIGTERM", shutdown);
+process.on("SIGINT", shutdown);
+
 const imap = new Imap({
   user: String(process.env.IMAP_USER),
   password: String(process.env.IMAP_PASS),
@@ -175,7 +185,7 @@ const writeAttachment = (attachment: any) => {
 };
 
 const isValidFile = (fn: string) => {
-  log.debug(`File is named ${fn}`)
+  log.debug(`File is named ${fn}`);
   if (!fn) return false;
 
   const split = fn.split(".");
